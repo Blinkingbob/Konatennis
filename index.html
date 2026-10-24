@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Austin Karosi Tennis</title>
+<meta name="description" content="Austin Karosi – Former ATP Professional & Elite Tennis Coach now based on the Big Island, Hawaii. USPTA Elite certified with Grand Slam coaching experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Original All Court Tennis design (June 2026): navy / gold / cream, Cormorant + Outfit. Single committed look. */
+:root{
+  --navy:#0d1b2a;
+  --gold:#c9993a;
+  --gold-light:#e8c06a;
+  --cream:#faf7f2;
+  --white:#ffffff;
+  --gray:#6b7280;
+  --green:#1a4731;
+  color-scheme: light;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--cream);color:var(--navy);overflow-x:hidden;line-height:1.5}
+img{max-width:100%;display:block}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;padding-top:calc(18px + env(safe-area-inset-top,0px));padding-left:max(48px,env(safe-area-inset-left,0px));padding-right:max(48px,env(safe-area-inset-right,0px));display:flex;justify-content:space-between;align-items:center;background:rgba(13,27,42,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.nav-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:600;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;transition:color 0.3s}
+.nav-links a:hover{color:var(--gold)}
+
+/* HERO — 3-column photo collage */
+.hero{min-height:100vh;position:relative;display:grid;grid-template-columns:1fr 1fr 1fr;overflow:hidden}
+.hero-col{position:relative;overflow:hidden;min-height:100vh}
+.hero-col img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(0.45)}
+.hero-col-1 img{object-position:48% center}
+.hero-col-2 img{object-position:center 30%}
+.hero-col-3 img{object-position:center 35%}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right, rgba(13,27,42,0.85) 0%, rgba(13,27,42,0.4) 60%, rgba(13,27,42,0.5) 100%);z-index:1;pointer-events:none}
+.hero-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:0 80px;padding-left:max(80px,env(safe-area-inset-left,0px));padding-right:max(80px,env(safe-area-inset-right,0px))}
+.hero-badge{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.hero-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(64px,9vw,110px);font-weight:700;color:var(--white);line-height:0.9;margin-bottom:12px;text-wrap:balance}
+.hero-sub{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3vw,34px);font-style:italic;color:var(--gold-light);margin-bottom:28px}
+.hero-desc{font-size:17px;color:rgba(255,255,255,0.75);font-weight:300;max-width:520px;line-height:1.7;margin-bottom:40px}
+.hero-cta{display:inline-block;background:var(--gold);color:var(--navy);padding:16px 40px;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;width:fit-content}
+.hero-cta:hover{background:var(--gold-light);transform:translateY(-2px)}
+.hero-scroll{position:absolute;bottom:36px;right:48px;z-index:3;color:rgba(255,255,255,0.4);font-size:10px;letter-spacing:4px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero-scroll::after{content:'';display:block;width:1px;height:40px;background:rgba(255,255,255,0.3)}
+
+/* STATS BAR */
+.statsbar{background:var(--navy);padding:36px 80px;padding-left:max(80px,env(safe-area-inset-left,0px));padding-right:max(80px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-bottom:1px solid rgba(201,153,58,0.2)}
+.sstat{text-align:center;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px}
+.sstat-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:40px;font-weight:700;color:var(--gold);line-height:1;height:40px;display:flex;align-items:flex-end;font-variant-numeric:lining-nums tabular-nums}
+.sstat-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.45);line-height:1.5;white-space:nowrap}
+
+/* ABOUT */
+.about{background:var(--navy);padding:100px 80px;padding-left:max(80px,env(safe-area-inset-left,0px));padding-right:max(80px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-text h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(36px,4vw,52px);font-weight:600;color:var(--white);margin-bottom:24px;line-height:1.1;text-wrap:balance}
+.about-text h2 em{color:var(--gold);font-style:italic}
+.about-text p{color:rgba(255,255,255,0.65);font-size:16px;line-height:1.8;margin-bottom:16px;font-weight:300}
+.about-img{position:relative;min-width:0}
+.about-img img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center}
+.about-accent{position:absolute;bottom:-16px;right:-16px;width:55%;height:55%;border:3px solid var(--gold);z-index:-1}
+
+/* CREDENTIALS */
+.credentials{background:var(--cream);padding:100px 80px;padding-left:max(80px,env(safe-area-inset-left,0px));padding-right:max(80px,env(safe-area-inset-right,0px))}
+.section-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+.section-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(32px,4vw,48px);font-weight:600;color:var(--navy);margin-bottom:56px;line-height:1.1;text-wrap:balance}
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.cred-card{background:var(--white);padding:36px 28px;border-top:3px solid var(--gold);box-shadow:0 4px 24px rgba(0,0,0,0.06);min-width:0}
+.cred-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;font-weight:600;font-style:italic;color:var(--gold);line-height:1;margin-bottom:14px;font-variant-numeric:tabular-nums}
+.cred-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;font-weight:600;color:var(--navy);margin-bottom:10px}
+.cred-desc{font-size:14px;color:var(--gray);line-height:1.7;font-weight:300}
+
+/* TIMELINE */
+.timeline{background:var(--navy);padding:100px 80px;padding-left:max(80px,env(safe-area-inset-left,0px));padding-right:max(80px,env(safe-area-inset-right,0px))}
+.timeline .section-title{color:var(--white);margin-bottom:56px}
+.about .section-label{margin-bottom:16px}
+.tl-items{display:flex;flex-direction:column}
+.tl-item{display:grid;grid-template-columns:160px 2px 1fr;gap:0 40px;padding:44px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.tl-item:last-child{border-bottom:none}
+.tl-year{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:700;color:var(--gold);text-align:right;padding-top:4px;line-height:1.2;font-variant-numeric:tabular-nums}
+.tl-line{background:rgba(201,153,58,0.25);position:relative}
+.tl-line::before{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:var(--gold)}
+.tl-body{min-width:0}
+.tl-body h3{font-size:18px;font-weight:600;color:var(--white);margin-bottom:4px;font-family:'Outfit',sans-serif}
+.tl-body .role{font-size:12px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;font-weight:500}
+.tl-body p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.75;font-weight:300}
+
+/* CHAMPIONS */
+.champions{background:var(--cream);padding:100px 80px;padding-left:max(80px,env(safe-area-inset-left,0px));padding-right:max(80px,env(safe-area-inset-right,0px))}
+.champs-intro{color:var(--gray);font-size:16px;font-weight:300;max-width:580px;margin:-32px 0 52px;line-height:1.7}
+.champs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.champ-card{background:var(--white);border-top:3px solid var(--gold);box-shadow:0 4px 24px rgba(0,0,0,0.06);padding:30px 18px;text-align:center;transition:transform 0.3s;min-width:0}
+.champ-card:hover{transform:translateY(-4px)}
+.champ-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:600;color:var(--navy);margin-bottom:8px}
+.champ-title{font-size:11px;color:var(--gold);letter-spacing:1px;text-transform:uppercase;line-height:1.6}
+
+/* GALLERY — edge-to-edge editorial grid */
+.gallery{background:var(--navy);padding:80px 0 0}
+.gallery .section-label,.gallery .section-title{padding-left:max(80px,env(safe-area-inset-left,0px));padding-right:max(80px,env(safe-area-inset-right,0px))}
+.gallery .section-label{color:var(--gold)}
+.gallery .section-title{color:var(--white);margin-bottom:40px}
+.gallery-grid{column-count:3;column-gap:4px;width:100%}
+.gallery-grid figure{break-inside:avoid;margin:0 0 4px;overflow:hidden;position:relative;background:#0a1521}
+.gallery-grid img{width:100%;height:auto;display:block;transition:transform 0.6s ease}
+.gallery-grid figure:hover img{transform:scale(1.04)}
+.gallery-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 16px 12px;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.85);background:linear-gradient(to top,rgba(13,27,42,0.85),rgba(13,27,42,0));opacity:0;transition:opacity 0.4s ease}
+.gallery-grid figure:hover figcaption{opacity:1}
+
+/* BIG ISLAND BANNER */
+.bigisland{background:var(--cream);border-top:1px solid rgba(201,153,58,0.25);padding:100px 80px;grid-template-columns:1.15fr 1fr;padding-left:max(80px,env(safe-area-inset-left,0px));padding-right:max(80px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.bigisland .section-label{color:var(--gold)}
+.bi-text h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(32px,4vw,52px);font-weight:700;color:var(--navy);margin-bottom:20px;line-height:1.05;text-wrap:balance}
+.bi-text h2 em{font-style:italic;color:var(--gold)}
+.bi-text p{color:var(--gray);font-size:16px;font-weight:300;line-height:1.8;margin-bottom:14px}
+.bi-text p:last-child{color:var(--navy);font-weight:500;font-size:14px;letter-spacing:1px;text-transform:uppercase;margin-top:8px}
+.bi-img{overflow:hidden;min-width:0}
+.bi-img img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 42%}
+
+/* CONTACT */
+.contact{background:var(--navy);padding:100px 80px;padding-left:max(80px,env(safe-area-inset-left,0px));padding-right:max(80px,env(safe-area-inset-right,0px));text-align:center}
+.contact h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(36px,5vw,60px);font-weight:700;color:var(--white);margin-bottom:16px;text-wrap:balance}
+.contact p{color:rgba(255,255,255,0.55);font-size:17px;font-weight:300;margin-bottom:40px}
+.contact-btn{display:inline-block;background:var(--gold);color:var(--navy);padding:18px 52px;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all 0.3s}
+.contact-btn:hover{background:var(--gold-light)}
+.contact-email{margin-top:22px;display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap}
+.contact-email-val{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;color:var(--gold-light);font-weight:600;letter-spacing:0.5px;user-select:all}
+.copy-btn{font:inherit;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);background:none;border:1px solid rgba(255,255,255,0.18);padding:8px 14px;cursor:pointer;transition:all 0.3s}
+.copy-btn:hover{color:var(--gold);border-color:var(--gold)}
+.copy-btn[data-state="copied"]{color:var(--navy);background:var(--gold);border-color:var(--gold)}
+.contact-row{display:flex;justify-content:center;gap:72px;margin-top:64px;flex-wrap:wrap}
+.contact-item-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:6px}
+.contact-item-val{font-size:16px;font-weight:500;color:var(--white)}
+
+/* FOOTER */
+footer{background:#070f19;padding:28px 80px;padding-left:max(80px,env(safe-area-inset-left,0px));padding-right:max(80px,env(safe-area-inset-right,0px));display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:12px}
+footer p{color:rgba(255,255,255,0.25);font-size:12px;letter-spacing:1px}
+.footer-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;color:var(--gold);letter-spacing:2px}
+
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+
+@media(max-width:900px){
+  nav{padding:14px 20px;padding-top:calc(14px + env(safe-area-inset-top,0px));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  .nav-links{display:none}
+  .hero,.hero-col{min-height:92vh}
+  .hero-content{padding:0 24px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+  .hero-name{font-size:56px}
+  .hero-scroll{display:none}
+  .statsbar{padding:28px 24px;grid-template-columns:1fr 1fr;gap:28px 16px}
+  .about,.credentials,.timeline,.champions,.bigisland,.contact{padding:60px 24px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+  .gallery{padding:60px 0 0}
+  .gallery .section-label,.gallery .section-title{padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+  footer{padding:24px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+  .about{grid-template-columns:1fr;gap:40px}
+  .about-img img{height:auto}
+  .cred-grid{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:1fr;gap:8px;padding:32px 0}
+  .tl-year{text-align:left}
+  .tl-line{display:none}
+  .champs-grid{grid-template-columns:1fr 1fr}
+  .champs-intro{margin-top:-16px}
+  .gallery-grid{column-count:2}
+  .bigisland{grid-template-columns:1fr;gap:32px}
+  .bi-img{height:auto}
+  .contact-row{flex-direction:column;gap:28px}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Austin Karosi</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#champions">Champions</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO: 3-column photo collage with content overlay -->
+<section class="hero">
+  <div class="hero-col hero-col-1"><img src="photos/p04.jpg" alt="Austin stretching for a volley at the ATP Challenger Tour, Singapore"></div>
+  <div class="hero-col hero-col-2"><img src="photos/p12.jpg" alt="Austin competing on clay"></div>
+  <div class="hero-col hero-col-3"><img src="photos/p16.jpg" alt="Austin coaching a junior player"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Former ATP Professional · USPTA Elite Certified</div>
+    <h1 class="hero-name">Austin<br>Karosi</h1>
+    <div class="hero-sub">World-Class Tennis, Island Style</div>
+    <p class="hero-desc">Former ATP-ranked player, hitting partner to five Grand Slam champions, and seven years running club programs in Santa Monica and Singapore — now coaching on the Kona coast.</p>
+    <a href="#contact" class="hero-cta">Book a Session →</a>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- STATS BAR -->
+<div class="statsbar">
+  <div class="sstat"><div class="sstat-num">15+</div><div class="sstat-label">Years in Pro Tennis</div></div>
+  <div class="sstat"><div class="sstat-num">5</div><div class="sstat-label">Grand Slam Champions</div></div>
+  <div class="sstat"><div class="sstat-num">7</div><div class="sstat-label">Years as Head Pro</div></div>
+  <div class="sstat"><div class="sstat-num">USPTA</div><div class="sstat-label">Elite Professional</div></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text">
+    <div class="section-label">About</div>
+    <h2>A Career Spent<br>Inside the <em>Pro Game</em></h2>
+    <p>Austin Karosi grew up between California and Singapore and competed on the ATP circuit from 2009 to 2015, training under Larry Passos, the longtime coach of three-time Roland-Garros champion Gustavo Kuerten. From 2019 to 2024 he worked as a hitting partner on the ATP and WTA circuits, with stops at Grand Slam and Masters 1000 events including Indian Wells, and in 2023–2024 coached an ATP top-200 doubles player on tour.</p>
+    <p>In between, he spent seven years as head professional and program director at clubs in Santa Monica and Singapore, building everything from first-timer clinics to high-performance junior pathways.</p>
+    <p>His approach is simple: good tennis is built on fundamentals, footwork, and repetition, and the best coaching makes hard work feel like the best part of your day. He'd rather fix one thing properly than ten things halfway.</p>
+  </div>
+  <div class="about-img">
+    <img src="photos/p19.jpg" alt="Austin with an ATP player on the practice court">
+    <div class="about-accent"></div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="credentials" id="credentials">
+  <div class="section-label">Certifications &amp; Experience</div>
+  <div class="section-title">What's Behind the Lesson</div>
+  <div class="cred-grid">
+    <div class="cred-card">
+      <div class="cred-num">01</div>
+      <div class="cred-title">USPTA Elite Professional</div>
+      <div class="cred-desc">The highest certification offered by the United States Professional Tennis Association, covering technique, strategy, injury prevention, and tennis-specific conditioning.</div>
+    </div>
+    <div class="cred-card">
+      <div class="cred-num">02</div>
+      <div class="cred-title">ATP Tour Player</div>
+      <div class="cred-desc">Competed internationally on the ATP circuit from 2009 to 2015 and earned a world ranking. Trained under Larry Passos, Gustavo Kuerten's coach through three Roland-Garros titles.</div>
+    </div>
+    <div class="cred-card">
+      <div class="cred-num">03</div>
+      <div class="cred-title">Tour Hitting Partner &amp; Coach</div>
+      <div class="cred-desc">Hitting partner on the ATP and WTA circuits from 2019 to 2024, including Indian Wells. Coached an ATP top-200 doubles player on tour in 2023–2024: match prep, tactics, and conditioning.</div>
+    </div>
+    <div class="cred-card">
+      <div class="cred-num">04</div>
+      <div class="cred-title">Head Pro &amp; Program Director</div>
+      <div class="cred-desc">Seven years directing tennis programs at clubs in Santa Monica and Singapore — player development, staff, tournaments, and clinics for beginners through competitive players.</div>
+    </div>
+    <div class="cred-card">
+      <div class="cred-num">05</div>
+      <div class="cred-title">Junior Development</div>
+      <div class="cred-desc">Built high-performance junior pathways in Singapore and the United States, from first lesson through international tournament play.</div>
+    </div>
+    <div class="cred-card">
+      <div class="cred-num">06</div>
+      <div class="cred-title">Tennis &amp; Pickleball, Kona</div>
+      <div class="cred-desc">Based on the Kona coast since 2025. Private lessons, clinics, and long-term development programs in both sports, for juniors, club players, and touring pros.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER TIMELINE -->
+<section class="timeline" id="career">
+  <div class="section-label">Career</div>
+  <div class="section-title">The Path to Kona</div>
+  <div class="tl-items">
+    <div class="tl-item">
+      <div class="tl-year">2009–2015</div>
+      <div class="tl-line"></div>
+      <div class="tl-body">
+        <div class="role">ATP World Tour</div>
+        <h3>Professional Player</h3>
+        <p>Competed on the international circuit and earned an ATP world ranking. Trained with Larry Passos, former coach of World No. 1 Gustavo Kuerten.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2015–2022</div>
+      <div class="tl-line"></div>
+      <div class="tl-body">
+        <div class="role">Santa Monica, CA &amp; Singapore</div>
+        <h3>Head Tennis Professional &amp; Program Director</h3>
+        <p>Directed programs at clubs in both cities — player development for every level, high-performance junior and adult programs, tournament and clinic organization, and coaching staff.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2019–2024</div>
+      <div class="tl-line"></div>
+      <div class="tl-body">
+        <div class="role">ATP &amp; WTA Circuits</div>
+        <h3>Hitting Partner to Grand Slam Champions</h3>
+        <p>Practice sessions with Venus Williams, Andy Roddick, Gustavo Kuerten, Angelique Kerber, and Alexander Zverev at Grand Slam and Masters 1000 events including the BNP Paribas Open at Indian Wells.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2023–2024</div>
+      <div class="tl-line"></div>
+      <div class="tl-body">
+        <div class="role">ATP Tour</div>
+        <h3>Tour Coach</h3>
+        <p>Coached a professional doubles player ranked ATP No. 194 — match preparation, strategy, physical conditioning, and in-depth match analysis on the road.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2025–Now</div>
+      <div class="tl-line"></div>
+      <div class="tl-body">
+        <div class="role">Kona Coast, Hawai'i</div>
+        <h3>All Court Tennis</h3>
+        <p>Tennis and pickleball coaching on the Big Island. Private instruction, clinics, and long-term development for juniors, club players, and touring pros.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAMPIONS -->
+<section class="champions" id="champions">
+  <div class="section-label">On the Practice Court</div>
+  <div class="section-title">Grand Slam Champions Trained With</div>
+  <p class="champs-intro">As a hitting partner on the ATP and WTA circuits, Austin has prepared alongside some of the best players of the past twenty years.</p>
+  <div class="champs-grid">
+    <div class="champ-card"><div class="champ-name">Venus Williams</div><div class="champ-title">7× Grand Slam Champion</div></div>
+    <div class="champ-card"><div class="champ-name">Andy Roddick</div><div class="champ-title">US Open Champion · Former No. 1</div></div>
+    <div class="champ-card"><div class="champ-name">Gustavo Kuerten</div><div class="champ-title">3× Roland-Garros Champion · Former No. 1</div></div>
+    <div class="champ-card"><div class="champ-name">Angelique Kerber</div><div class="champ-title">3× Grand Slam Champion · Former No. 1</div></div>
+    <div class="champ-card"><div class="champ-name">Alexander Zverev</div><div class="champ-title">ATP World No. 1 · 2× Grand Slam Champion</div></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-label">Gallery</div>
+  <div class="section-title">On Court Around the World</div>
+  <div class="gallery-grid">
+    <figure><img src="photos/p21.jpg" alt="Indian Wells Tennis Garden"><figcaption>Indian Wells Tennis Garden</figcaption></figure>
+    <figure><img src="photos/p01.jpg" alt="Davis Cup — Team Serbia"><figcaption>Davis Cup — Team Serbia</figcaption></figure>
+    <figure><img src="photos/p06.jpg" alt="BNP Paribas Open, Indian Wells"><figcaption>BNP Paribas Open, Indian Wells</figcaption></figure>
+    <figure><img src="photos/p20.jpg" alt="Junior Academy, Singapore"><figcaption>Junior Academy, Singapore</figcaption></figure>
+    <figure><img src="photos/p17.jpg" alt="WTA practice courts, Indian Wells"><figcaption>WTA practice courts, Indian Wells</figcaption></figure>
+    <figure><img src="photos/p09.jpg" alt="Signing for the next generation"><figcaption>Signing for the next generation</figcaption></figure>
+    <figure><img src="photos/p11.jpg" alt="ATP Challenger Tour"><figcaption>ATP Challenger Tour</figcaption></figure>
+    <figure><img src="photos/p14.jpg" alt="Practice courts, Indian Wells"><figcaption>Practice courts, Indian Wells</figcaption></figure>
+    <figure><img src="photos/p05.jpg" alt="Courtside, Singapore"><figcaption>Courtside, Singapore</figcaption></figure>
+    <figure><img src="photos/p08.jpg" alt="ATP Challenger Tour, Singapore"><figcaption>ATP Challenger Tour, Singapore</figcaption></figure>
+    <figure><img src="photos/p13.jpg" alt="Coaching one-on-one"><figcaption>Coaching one-on-one</figcaption></figure>
+    <figure><img src="photos/p03.jpg" alt="With coaches and family"><figcaption>With coaches and family</figcaption></figure>
+    <figure><img src="photos/p07.jpg" alt="Tour hitting session"><figcaption>Tour hitting session</figcaption></figure>
+    <figure><img src="photos/p02.jpg" alt="Between sessions"><figcaption>Between sessions</figcaption></figure>
+  </div>
+</section>
+
+<!-- BIG ISLAND -->
+<section class="bigisland">
+  <div class="bi-text">
+    <div class="section-label">Now Booking</div>
+    <h2>Coaching on<br>the <em>Big Island</em></h2>
+    <p>Austin is based on the Kona coast and available across West Hawai'i. Whether you're a junior with tournament goals, a club player trying to break through a plateau, or a visiting pro who needs a serious hitting session, the work is the same: fundamentals, footwork, repetition.</p>
+    <p>Private Lessons · Clinics · Long-term Development · Tennis &amp; Pickleball</p>
+  </div>
+  <div class="bi-img">
+    <img src="photos/p18.jpg" alt="Austin on the practice courts at Indian Wells">
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>Ready to Get to Work?</h2>
+  <p>Send a note with your level, your goals, and when you're on-island. Austin replies the same day.</p>
+  <a href="mailto:Actennisinc@gmail.com?subject=Lesson%20Inquiry" class="contact-btn">Get in Touch</a>
+  <div class="contact-email">
+    <span class="contact-email-val" id="email-text">Actennisinc@gmail.com</span>
+    <button class="copy-btn" id="copy-email" type="button">Copy</button>
+  </div>
+  <div class="contact-row">
+    <div><div class="contact-item-label">Location</div><div class="contact-item-val">Kona, Big Island, Hawai'i</div></div>
+    <div><div class="contact-item-label">Certification</div><div class="contact-item-val">USPTA Elite Professional</div></div>
+    <div><div class="contact-item-label">Specialties</div><div class="contact-item-val">ATP-Level · Juniors · All Levels</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Austin Karosi</div>
+  <p>© 2026 Austin Karosi Tennis · Big Island, Hawai'i · USPTA Elite Professional</p>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('copy-email');
+  var txt = document.getElementById('email-text');
+  if (!btn || !txt) return;
+  btn.addEventListener('click', function(){
+    var val = txt.textContent.trim();
+    function selectText(){
+      try{
+        var r = document.createRange(); r.selectNodeContents(txt);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      }catch(e){}
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(val).then(function(){
+        btn.textContent = 'Copied';
+        btn.setAttribute('data-state','copied');
+        setTimeout(function(){ btn.textContent='Copy'; btn.removeAttribute('data-state'); }, 1800);
+      }).catch(selectText);
+    } else { selectText(); }
+  });
+})();
+</script>
+
+</body>
+</html>
